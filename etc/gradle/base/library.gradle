@@ -1,0 +1,42 @@
+// Mavenリポジトリの設定
+repositories {
+    mavenCentral()
+}
+
+// 外部ライブラリのバージョン
+ext {
+    lombokVersion = '1.14.8'
+
+    jacksonVersion = '2.4.2'
+
+    slf4jVersion = '1.7.7'
+
+    spockVersion = '1.0-groovy-2.3'
+
+    logbackVersion = '1.1.2'
+}
+
+dependencies {
+    // Gralde API
+    compile gradleApi()
+
+    // Groovy 関連
+    compile localGroovy()
+
+
+    // Getter等のボイラープレートコードの自動生成（参考URL　http://www.coppermine.jp/docs/programming/2014/01/lombok.html）
+    compile "org.projectlombok:lombok:${lombokVersion}"
+
+    // JSON 関連
+    compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}" // POJOをJSONにマッピング／Springから呼び出される
+
+    // ロギング 関連
+    compile "org.slf4j:slf4j-api:${slf4jVersion}"
+
+
+    // テストフレームワーク（Spock）＊ JUnitもここに含まれている
+    testCompile "org.spockframework:spock-core:${spockVersion}"
+
+    // Logback
+    testRuntime "ch.qos.logback:logback-classic:${logbackVersion}"
+}
