@@ -19,7 +19,7 @@ buildscript {
     }
 }
 
-apply plugin: 'kajip.git-publish'
+apply plugin: 'kajip.hello'
 
 // Plugin の設定
 hello {
